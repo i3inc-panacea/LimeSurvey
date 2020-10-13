@@ -118,6 +118,19 @@ class index extends CAction
             $tokensexist = 1;
         }
 
+        // maintenance mode
+        $sMaintenanceMode = App()->getConfig('maintenancemode');
+        if ($sMaintenanceMode == 'hard') {
+            if ($previewmode === false) {
+                App()->twigRenderer->renderTemplateFromFile("layout_maintenance.twig", array('oSurvey'=>Survey::model()->findByPk($surveyid), 'aSurveyInfo'=>$thissurvey), false);
+            }
+        } elseif ($sMaintenanceMode == 'soft') {
+            if ($move === null) {
+                if ($previewmode === false) {
+                    App()->twigRenderer->renderTemplateFromFile("layout_maintenance.twig", array('oSurvey'=>Survey::model()->findByPk($surveyid), 'aSurveyInfo'=>$thissurvey), false);
+                }
+            }
+        }
 
         if ($tokensexist == 1 && isset($token) && $token != "" && tableExists("{{tokens_".$surveyid."}}") && !$previewmode) {
             // check also if it is allowed to change survey after completion

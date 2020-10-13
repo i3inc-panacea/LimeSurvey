@@ -1095,6 +1095,8 @@ class themes extends Survey_Common_Action
                     ]
                 ];
                 break;
+            case 'maintenance':
+                break;
 
             case 'error':
                 break;

@@ -177,6 +177,7 @@ class TemplateManifest extends TemplateConfiguration
           $aScreens['pdf']             = gT('PDF', 'unescaped');
           $aScreens['navigation']      = gT('Navigation', 'unescaped');
           $aScreens['misc']            = gT('Miscellaneous files', 'unescaped');
+          $aScreens['maintenance']     = gT('Maintenance', 'unescaped');
       }
 
       return $aScreens;
