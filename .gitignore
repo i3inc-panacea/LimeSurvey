@@ -175,9 +175,3 @@ tags
 package-lock.json
 
 third_party/
-
-# Docker related files
-.dockerignore
-.Dockerfile
-docker-compose.yml
-docker/
