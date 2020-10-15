@@ -14,4 +14,5 @@ COPY ./limesurvey.conf /etc/apache2/sites-available/limesurvey.conf
 RUN service mysql start &&  mysql < dbsetup.sql
 RUN a2ensite limesurvey
 EXPOSE 80
-CMD ["apachectl", "-D", "FOREGROUND"] 
+COPY ./entry.sh .
+CMD ["./entry.sh"] 
