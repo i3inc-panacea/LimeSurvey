@@ -1,0 +1,23 @@
+version: "3.0"
+
+services:
+  db:
+    container_name: limesurvey_db
+    image: mariadb
+    restart: always
+    environment:
+      - MYSQL_DATABASE=limesurvey_db
+      - MYSQL_USER=limesurvey_user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=P@n@ce@
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+
+  limesurvey:
+    depends_on:
+      - db
+    container_name: limesurvey
+    restart: always
+    build: ./limesurvey
+    ports:
+      - 8080:80
